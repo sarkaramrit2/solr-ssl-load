@@ -13,9 +13,6 @@
       <entry name="!?*.java" />
     </wildcardResourcePatterns>
   </component>
-  <component name="EntryPointsManager">
-    <entry_points />
-  </component>
   <component name="ExportToHTMLSettings">
     <option name="PRINT_LINE_NUMBERS" value="false" />
     <option name="OPEN_IN_BROWSER" value="false" />
@@ -78,4 +75,7 @@
     </modules>
   </component>
   <component name="ProjectRootManager" version="2" project-jdk-name="1.8" />
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+  </component>
 </project>

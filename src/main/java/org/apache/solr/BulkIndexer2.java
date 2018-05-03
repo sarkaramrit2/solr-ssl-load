@@ -32,7 +32,6 @@ public class BulkIndexer2 {
         System.setProperty("javax.net.ssl.trustStorePassword", "secret");
 
         final String zkHost = "54.202.31.6:2181";
-        //final String zkHost = "apple:9983";
         final CloudSolrClient client = new CloudSolrClient.Builder().withZkHost(zkHost).build();
         final String collection = "apple-test";
         client.setDefaultCollection(collection);
