@@ -1,4 +1,4 @@
-package eoe.code;
+package org.apache.solr;
 
 import org.apache.solr.client.solrj.impl.HttpSolrClient;
 import org.apache.solr.common.SolrInputDocument;
