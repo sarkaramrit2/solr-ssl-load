@@ -60,8 +60,8 @@
       <file leaf-file-name="IndexSingleDocPerClient.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/solr/IndexSingleDocPerClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="72" column="94" lean-forward="true" selection-start-line="72" selection-start-column="94" selection-end-line="72" selection-end-column="94" />
+            <state relative-caret-position="170">
+              <caret line="279" column="19" lean-forward="false" selection-start-line="279" selection-start-column="14" selection-end-line="279" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -85,6 +85,12 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>Caught a stupid exception, retrying</find>
+      <find>catch</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -412,8 +418,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/solr/IndexSingleDocPerClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="72" column="94" lean-forward="true" selection-start-line="72" selection-start-column="94" selection-end-line="72" selection-end-column="94" />
+        <state relative-caret-position="170">
+          <caret line="279" column="19" lean-forward="false" selection-start-line="279" selection-start-column="14" selection-end-line="279" selection-end-column="19" />
           <folding />
         </state>
       </provider>

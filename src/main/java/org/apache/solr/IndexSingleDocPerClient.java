@@ -318,6 +318,7 @@ class IndexingThread implements Runnable {
                             client.add(docList);
                             break;
                         } catch (Exception e) {
+                            e.printStackTrace();
                             System.out.println("Caught a stupid exception, retrying.");
                             Thread.sleep(3000);
                         }
