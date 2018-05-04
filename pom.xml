@@ -19,7 +19,7 @@
                     </descriptorRefs>
                     <archive>
                         <manifest>
-                            <mainClass>org.apache.solr.BulkIndexer2</mainClass>
+                            <mainClass>org.apache.solr.IndexSingleDocPerClient</mainClass>
                         </manifest>
                     </archive>
                 </configuration>
