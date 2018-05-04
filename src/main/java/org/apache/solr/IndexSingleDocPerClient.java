@@ -14,6 +14,7 @@ import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.logging.*;
 
 public class IndexSingleDocPerClient {
 
@@ -32,6 +33,8 @@ public class IndexSingleDocPerClient {
     static int numDocs = 0;
     static final List<IndexingField> fields = new ArrayList<>();
 
+    //Adding a bare-bones logging functionality to dump data to a file
+    private final static Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
     public static void main(String[] args) {
 
@@ -41,6 +44,14 @@ public class IndexSingleDocPerClient {
         System.setProperty("javax.net.ssl.trustStorePassword", "secret");
 
         if (args.length == 0 || args.length > 1 || "-h".equals(args[0]) || "--help".equals(args[0])) fullUsage();
+
+        //Setting up the logger here
+        try {
+            GenericFileLogger.init();
+        }catch(IOException ioe) {
+            System.out.println("Failed to enable logging to file, quitting");
+            return;
+        }
 
         try {
             long start = System.currentTimeMillis();
@@ -180,7 +191,7 @@ public class IndexSingleDocPerClient {
             threads[idx] = new Thread(new IndexingThread());
             threads[idx].start();
         }
-        Thread reporter = new Thread(new ReporterThread());
+        Thread reporter = new Thread(new ReporterThread(LOGGER));
         reporter.start();
         for (int idx = 0; idx < threads.length; ++idx) {
             threads[idx].join();
@@ -257,14 +268,21 @@ public class IndexSingleDocPerClient {
         System.exit(-1);
     }
 
-    static void log(String msg) {
-        System.out.println(msg);
+    static synchronized void log(String msg) {
+        LOGGER.info(msg);
+        //System.out.println(msg);
     }
 }
 
 class ReporterThread implements Runnable {
 
     long start = System.currentTimeMillis();
+    Logger logger;
+
+    public ReporterThread(Logger logger) {
+        this.logger = logger;
+    }
+
 
     @Override
     public void run() {
@@ -273,10 +291,18 @@ class ReporterThread implements Runnable {
                 Thread.sleep(10000);
                 long intervalSecs = (System.currentTimeMillis() - start) / 1000;
                 int grand = IndexSingleDocPerClient.grandTotal.get();
+                /*
                 System.out.println(String.format("Indexed %s docs so far in %s seconds, avergage docs/second: %s",
                         IndexSingleDocPerClient.decFormat.format(grand),
                         IndexSingleDocPerClient.decFormat.format(intervalSecs),
-                        IndexSingleDocPerClient.decFormat.format(grand / intervalSecs)));
+                        IndexSingleDocPerClient.decFormat.format(grand / intervalSecs)));*/
+
+                String str = String.format("Indexed %s docs so far in %s seconds, average docs/second: %s",
+                        IndexSingleDocPerClient.decFormat.format(grand),
+                        IndexSingleDocPerClient.decFormat.format(intervalSecs),
+                        IndexSingleDocPerClient.decFormat.format(grand / intervalSecs));
+                logger.info(str);
+
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
@@ -497,6 +523,36 @@ class IndexingField {
         }
         IndexSingleDocPerClient.log("We shouldn't be here either");
         return ""; // Shouldn't get here either.
+    }
+}
+
+//Bad bad practise but creating one more class here
+class GenericFileLogger {
+
+    static private FileHandler fileTxt;
+    static private SimpleFormatter formatterTxt;
+
+
+    static public void init() throws IOException {
+
+        Logger logger = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
+        logger.setUseParentHandlers(false);
+
+        // suppress the logging output to the console by eliminating the ConsoleHandler
+        Logger rootLogger = Logger.getLogger("");
+        Handler[] handlers = rootLogger.getHandlers();
+        if (handlers[0] instanceof ConsoleHandler) {
+            rootLogger.removeHandler(handlers[0]);
+        }
+
+        logger.setLevel(Level.INFO);
+        String timeStamp = new SimpleDateFormat("ddMMyyyy_HHmmss").format(Calendar.getInstance().getTime());
+        fileTxt = new FileHandler("report" + "_" + timeStamp + ".log");
+
+        // create a text formatter
+        formatterTxt = new SimpleFormatter();
+        fileTxt.setFormatter(formatterTxt);
+        logger.addHandler(fileTxt);
     }
 
 }
