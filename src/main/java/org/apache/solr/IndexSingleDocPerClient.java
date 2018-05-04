@@ -66,7 +66,12 @@ public class IndexSingleDocPerClient {
 
             while ((line = brConf.readLine()) != null) {
                 int pos = line.indexOf("//");
-                if (pos >= 0 && line.indexOf("http") == -1) line = line.substring(0, pos);
+                if (line.contains("https")) {
+                    if (pos >= 0 && line.indexOf("https") == -1) line = line.substring(0, pos);
+                }
+                else {
+                    if (pos >= 0 && line.indexOf("http") == -1) line = line.substring(0, pos);
+                }
                 line = line.trim();
                 if (line.length() == 0) continue;
                 if (line.startsWith("COLLECTION:")) {
