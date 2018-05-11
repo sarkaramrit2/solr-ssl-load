@@ -51,7 +51,7 @@ public class BulkIndexer2 {
             Thread t = new Thread() {
                 @Override
                 public void run() {
-                    for (int j = 0; j < 10000; j++) {
+                    for (int j = 0; j < 50000; j++) {
                     //while (true) {
                         List<SolrInputDocument> docs = new ArrayList<>();
                         for (int i = 0; i < 4000; i++) {
