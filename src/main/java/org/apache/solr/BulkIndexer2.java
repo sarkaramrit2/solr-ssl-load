@@ -28,7 +28,7 @@ public class BulkIndexer2 {
 
         System.setProperty("javax.net.ssl.keyStore", "/home/ec2-user/keystore.jks");
         System.setProperty("javax.net.ssl.keyStorePassword", "secret");
-        System.setProperty("javax.net.ssl.trustStore", "//home/ec2-user/keystore.jks");
+        System.setProperty("javax.net.ssl.trustStore", "/home/ec2-user/keystore.jks");
         System.setProperty("javax.net.ssl.trustStorePassword", "secret");
 
         final String zkHost = "54.202.31.6:2181";
