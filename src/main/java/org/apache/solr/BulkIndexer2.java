@@ -26,15 +26,25 @@ public class BulkIndexer2 {
 
     public static void main(String args[]) throws Exception {
 
-        System.setProperty("javax.net.ssl.keyStore", "/home/ec2-user/keystore.jks");
+        /*System.setProperty("javax.net.ssl.keyStore", "/home/ec2-user/keystore.jks");
         System.setProperty("javax.net.ssl.keyStorePassword", "secret");
         System.setProperty("javax.net.ssl.trustStore", "//home/ec2-user/keystore.jks");
-        System.setProperty("javax.net.ssl.trustStorePassword", "secret");
+        System.setProperty("javax.net.ssl.trustStorePassword", "secret");*/
 
-        final String zkHost = "54.202.31.6:2181";
-        final CloudSolrClient client = new CloudSolrClient.Builder().withZkHost(zkHost).build();
-        final String collection = "apple-test";
-        client.setDefaultCollection(collection);
+        final String zkHost = "localhost:";
+        final CloudSolrClient client1 = new CloudSolrClient.Builder().withZkHost(zkHost+"9981").build();
+        final CloudSolrClient client2 = new CloudSolrClient.Builder().withZkHost(zkHost+"9983").build();
+        //final CloudSolrClient client3 = new CloudSolrClient.Builder().withZkHost(zkHost+"9985").build();
+        //final CloudSolrClient client4 = new CloudSolrClient.Builder().withZkHost(zkHost+"9989").build();*/
+
+        //final CloudSolrClient client = new CloudSolrClient.Builder().withZkHost("localhost:9983").build();
+
+        final String collection = "test_export";
+        client1.setDefaultCollection(collection);
+        client2.setDefaultCollection(collection);
+        /*client3.setDefaultCollection(collection);
+        client4.setDefaultCollection(collection);*/
+        //client.setDefaultCollection(collection);
 
         for (int i = 0; i < 3; i++) {
             Strings[i] = createSentance1(7);
@@ -46,16 +56,16 @@ public class BulkIndexer2 {
 
         final UpdateRequest updateRequest = new UpdateRequest();
 
-        for (int k = 0; k < 5; k++) {
-            int index = ThreadLocalRandom.current().nextInt(5);
+        for (int k = 0; k < 1; k++) {
+            final int id_k = k;
             Thread t = new Thread() {
                 @Override
                 public void run() {
-                    for (int j = 0; j < 10000; j++) {
+                    for (int j = 0; j < 500; j++) {
                     //while (true) {
                         List<SolrInputDocument> docs = new ArrayList<>();
-                        for (int i = 0; i < 4000; i++) {
-                            SolrInputDocument document = new SolrInputDocument();
+                        for (int i = 0; i < 5000; i++) {
+                            /*SolrInputDocument document = new SolrInputDocument();
                             document.addField("id", UUID.randomUUID().toString());
                             document.addField("member_id_i", new Random().nextInt(3) % 3);
                             for (int z=0; z<10; z++) {
@@ -67,16 +77,38 @@ public class BulkIndexer2 {
                             document.addField("ship_addr2_s", Strings[new Random().nextInt(3) % 3]);
                             document.addField("ship_addr3_s", Strings[new Random().nextInt(3) % 3]);
                             document.addField("ship_addr4_s", Strings[new Random().nextInt(3) % 3]);
-                            document.addField("ship_addr5_s", Strings[new Random().nextInt(3) % 3]);
+                            document.addField("ship_addr5_s", Strings[new Random().nextInt(3) % 3]);*/
+                            SolrInputDocument document = new SolrInputDocument();
+                            long id = i + (j * 5000);
+                            document.addField("id", id);
+                            for (int z = 1; z <= 4; z++) {
+                                document.addField("field" + z + "_s", id % 1000);
+                                document.addField("field" + z + "_i", id % 1000);
+                                document.addField("field" + z + "_d", id % 1000);
+                                document.addField("field" + z + "_f", id % 1000);
+                                document.addField("field" + z + "_l", id % 1000);
+                                document.addField("field" + z + "_b", ThreadLocalRandom.current().nextBoolean());
+                            }
+                            for (int z = 1; z <= 4; z++) {
+                                document.addField("fieldX" + z + "_s", id);
+                                document.addField("fieldX" + z + "_i", id);
+                                document.addField("fieldX" + z + "_d", id);
+                                document.addField("fieldX" + z + "_f", id);
+                                document.addField("fieldX" + z + "_l", id);
+                                document.addField("fieldX" + z + "_b", ThreadLocalRandom.current().nextBoolean());
+                            }
                             docs.add(document);
                         }
                         UpdateRequest updateRequest = new UpdateRequest();
                         updateRequest.add(docs);
                         try {
-                            System.out.println("updateRequest: " + updateRequest);
-                            NamedList resp = client.request(updateRequest, collection);
-                            log.info("stop here");
-                            updateRequest.commit(client, collection);
+                            System.out.println("size: " + docs.size());
+                            client1.request(updateRequest, collection);
+                            client2.request(updateRequest, collection);
+                            /*client3.request(updateRequest, collection);
+                            client4.request(updateRequest, collection);*/
+                            //client.request(updateRequest, collection);
+                            //updateRequest.commit(client, collection);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -89,7 +121,12 @@ public class BulkIndexer2 {
             t.start();
         }
         for (Thread thread : threads) thread.join();
-        updateRequest.commit(client, collection);
+        updateRequest.commit(client1, collection);
+        updateRequest.commit(client2, collection);
+        /*updateRequest.commit(client3, collection);
+        updateRequest.commit(client4, collection);*/
+        //updateRequest.commit(client, collection);
+
         System.out.println("end :: " + System.currentTimeMillis());
         System.exit(0);
     }
