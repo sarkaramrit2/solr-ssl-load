@@ -70,7 +70,6 @@ public class BulkIndexer {
                         try {
                             System.out.println("updateRequest: " + updateRequest);
                             NamedList resp = client.request(updateRequest, collection);
-                            updateRequest.commit(client, collection);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
