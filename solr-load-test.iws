@@ -2,20 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7d85cf5e-50ad-4741-bf51-7c197b5c5741" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/solr/BulkIndexer2$1.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/solr/BulkIndexer2$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/solr/BulkIndexer2.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/solr/BulkIndexer2.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/solr/IndexSingleDocPerClient$1.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/solr/IndexSingleDocPerClient$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/solr/IndexSingleDocPerClient.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/solr/IndexSingleDocPerClient.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/solr/IndexingField.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/solr/IndexingField.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/solr/IndexingThread.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/solr/IndexingThread.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/org/apache/solr/ReporterThread.class" afterPath="$PROJECT_DIR$/target/classes/org/apache/solr/ReporterThread.class" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/org/apache/solr/BulkIndexer2.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/solr-load-test.ipr" afterPath="$PROJECT_DIR$/solr-load-test.ipr" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/solr-load-test.iws" afterPath="$PROJECT_DIR$/solr-load-test.iws" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/solr-ssl-load.iml" afterPath="$PROJECT_DIR$/solr-ssl-load.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/apache/solr/BulkIndexer2.java" afterPath="$PROJECT_DIR$/src/main/java/org/apache/solr/BulkIndexer2.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/index.jmx" afterPath="$PROJECT_DIR$/target/classes/index.jmx" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/query.jmx" afterPath="$PROJECT_DIR$/target/classes/query.jmx" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/org/apache/solr/IndexSingleDocPerClient.java" afterPath="$PROJECT_DIR$/src/main/java/org/apache/solr/IndexSingleDocPerClient.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -50,21 +39,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="21" column="66" lean-forward="false" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BulkIndexer2.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/solr/BulkIndexer2.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-649">
-              <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="197">
+              <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -104,11 +83,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="BulkIndexer.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="BulkIndexer.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/solr/BulkIndexer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="55" column="40" lean-forward="true" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
+            <state relative-caret-position="260">
+              <caret line="59" column="82" lean-forward="true" selection-start-line="59" selection-start-column="82" selection-end-line="59" selection-end-column="82" />
               <folding>
                 <element signature="e#1918#3563#0" expanded="true" />
                 <element signature="e#3562#3563#0" expanded="true" />
@@ -130,9 +109,12 @@
       <file leaf-file-name="IndexSingleDocPerClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/solr/IndexSingleDocPerClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4005">
-              <caret line="282" column="9" lean-forward="false" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="4425">
+              <caret line="308" column="9" lean-forward="false" selection-start-line="308" selection-start-column="9" selection-end-line="308" selection-end-column="9" />
+              <folding>
+                <marker date="1533226079000" expanded="true" signature="23313:23319" ph="{...}" />
+                <marker date="1533226079000" expanded="true" signature="23313:23322" ph="{...}" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -563,7 +545,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4005">
           <caret line="282" column="9" lean-forward="false" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
-          <folding />
+          <folding>
+            <marker date="1533226079000" expanded="true" signature="23313:23319" ph="{...}" />
+            <marker date="1533226079000" expanded="true" signature="23313:23322" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -621,7 +606,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4005">
           <caret line="282" column="9" lean-forward="false" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
-          <folding />
+          <folding>
+            <marker date="1533226079000" expanded="true" signature="23313:23319" ph="{...}" />
+            <marker date="1533226079000" expanded="true" signature="23313:23322" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -679,7 +667,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4005">
           <caret line="282" column="9" lean-forward="false" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
-          <folding />
+          <folding>
+            <marker date="1533226079000" expanded="true" signature="23313:23319" ph="{...}" />
+            <marker date="1533226079000" expanded="true" signature="23313:23322" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -737,7 +728,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4005">
           <caret line="282" column="9" lean-forward="false" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
-          <folding />
+          <folding>
+            <marker date="1533226079000" expanded="true" signature="23313:23319" ph="{...}" />
+            <marker date="1533226079000" expanded="true" signature="23313:23322" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -795,7 +789,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4230">
           <caret line="282" column="9" lean-forward="false" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
-          <folding />
+          <folding>
+            <marker date="1533226079000" expanded="true" signature="23313:23319" ph="{...}" />
+            <marker date="1533226079000" expanded="true" signature="23313:23322" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -851,7 +848,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4230">
           <caret line="282" column="9" lean-forward="false" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
-          <folding />
+          <folding>
+            <marker date="1533226079000" expanded="true" signature="23313:23319" ph="{...}" />
+            <marker date="1533226079000" expanded="true" signature="23313:23322" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -883,17 +883,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/solr/IndexSingleDocPerClient.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4005">
-          <caret line="282" column="9" lean-forward="false" selection-start-line="282" selection-start-column="9" selection-end-line="282" selection-end-column="9" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="4425">
+          <caret line="308" column="9" lean-forward="false" selection-start-line="308" selection-start-column="9" selection-end-line="308" selection-end-column="9" />
+          <folding>
+            <marker date="1533226079000" expanded="true" signature="23313:23319" ph="{...}" />
+            <marker date="1533226079000" expanded="true" signature="23313:23322" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -922,30 +917,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/solr/BulkIndexer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="59" column="82" lean-forward="true" selection-start-line="59" selection-start-column="82" selection-end-line="59" selection-end-column="82" />
+          <folding>
+            <element signature="e#1918#3563#0" expanded="true" />
+            <element signature="e#3562#3563#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/solr/BulkIndexer2.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-649">
-          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        <state relative-caret-position="-574">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="21" column="66" lean-forward="false" selection-start-line="21" selection-start-column="66" selection-end-line="21" selection-end-column="66" />
+        <state relative-caret-position="197">
+          <caret line="20" column="34" lean-forward="false" selection-start-line="20" selection-start-column="34" selection-end-line="20" selection-end-column="34" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/org/apache/solr/BulkIndexer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="55" column="40" lean-forward="true" selection-start-line="55" selection-start-column="40" selection-end-line="55" selection-end-column="40" />
-          <folding>
-            <element signature="e#1918#3563#0" expanded="true" />
-            <element signature="e#3562#3563#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
