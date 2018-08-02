@@ -32,10 +32,17 @@ public class BulkIndexer {
         System.setProperty("javax.net.ssl.trustStorePassword", "secret");*/
 
         //final String zkHost = "54.202.31.6:2181";
-        final String zkHost = "35.162.107.109:9983";
-        final CloudSolrClient client = new CloudSolrClient.Builder().withZkHost(zkHost).build();
+        final String zkHost1 = "35.162.107.109:9981";
+        final String zkHost2 = "35.162.107.109:9983";
+        final String zkHost3 = "35.162.107.109:9985";
+        final CloudSolrClient client1 = new CloudSolrClient.Builder().withZkHost(zkHost1).build();
+        final CloudSolrClient client2 = new CloudSolrClient.Builder().withZkHost(zkHost2).build();
+        final CloudSolrClient client3 = new CloudSolrClient.Builder().withZkHost(zkHost3).build();
+
         final String collection = "test";
-        client.setDefaultCollection(collection);
+        client1.setDefaultCollection(collection);
+        client2.setDefaultCollection(collection);
+        client3.setDefaultCollection(collection);
 
         for (int i = 0; i < 3; i++) {
             Strings[i] = createSentance1(7);
@@ -69,7 +76,9 @@ public class BulkIndexer {
                         updateRequest.add(docs);
                         try {
                             System.out.println("updateRequest: " + updateRequest);
-                            NamedList resp = client.request(updateRequest, collection);
+                            client1.request(updateRequest, collection);
+                            client2.request(updateRequest, collection);
+                            client3.request(updateRequest, collection);
                         } catch (Exception e) {
                             e.printStackTrace();
                         }
@@ -82,7 +91,10 @@ public class BulkIndexer {
             t.start();
         }
         for (Thread thread : threads) thread.join();
-        updateRequest.commit(client, collection);
+        updateRequest.commit(client1, collection);
+        updateRequest.commit(client2, collection);
+        updateRequest.commit(client3, collection);
+
         System.out.println("end :: " + System.currentTimeMillis());
         System.exit(0);
     }
